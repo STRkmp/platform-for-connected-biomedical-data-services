@@ -1,0 +1,82 @@
+version: '3'
+
+services:
+  #Деплой сервера Django
+  web:
+    build:
+      context: backend/backend_project
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - internal
+    depends_on:
+      - rabbitmq
+      - minio
+    env_file:
+      - .env.minio
+
+ #Деплой консьюмера Django
+  consumer_web:
+    build:
+      context: backend/consumer_web  # Изменяем контекст на директорию консьюмера
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+      - minio
+    networks:
+      - internal
+    healthcheck:
+      test: [ "CMD-SHELL", "rabbitmq-diagnostics -q ping" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    env_file:
+      - .env.minio
+
+
+  #Деплой RabbitMQ
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    hostname: rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit log_levels [{connection,error},{default,error}] disk_free_limit 2147483648
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
+    ports:
+      - "5672:5672"  # Для AMQP
+      - "15672:15672"  # Для веб-интерфейса управления
+    networks:
+      - internal
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+
+  # Деплой MinIO
+  minio:
+    image: docker.io/bitnami/minio:2022
+    container_name: minio
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - 'minio_data:/data'
+    networks:
+      - internal
+    env_file:
+      - .env.minio
+
+
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  minio_data:
+    driver: local

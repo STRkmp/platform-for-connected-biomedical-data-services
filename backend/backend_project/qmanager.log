@@ -1,0 +1,74 @@
+2024-03-24 01:09:42,146 kombu_rmq_qmanager_7828: Connected to RabbitMQ Server
+2024-03-24 01:09:49,515 kombu_rmq_qmanager_7828: Queue RequestForServiceMessage initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-24 01:09:56,886 kombu_rmq_qmanager_7828: Queue ReqeustForServiceResultError initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-24 01:10:04,281 kombu_rmq_qmanager_7828: Queue WOW initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-24 01:10:11,672 kombu_rmq_qmanager_9504: Connected to RabbitMQ Server
+2024-03-24 01:10:19,042 kombu_rmq_qmanager_9504: Queue RequestForServiceMessage initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-24 01:10:26,405 kombu_rmq_qmanager_9504: Queue ReqeustForServiceResultError initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-24 01:10:33,773 kombu_rmq_qmanager_9504: Queue WOW initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-24 01:10:43,003 kombu_rmq_qmanager_17128: Connected to RabbitMQ Server
+2024-03-24 01:10:43,008 connection_17128: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2024 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 26.2.2', 'product': 'RabbitMQ', 'version': '3.13.0'}, mechanisms: [b'AMQPLAIN', b'PLAIN'], locales: ['en_US']
+2024-03-24 01:10:43,010 channel_17128: using channel_id: 1
+2024-03-24 01:10:43,011 channel_17128: Channel open
+2024-03-24 01:10:43,013 channel_17128: Closed channel #1
+2024-03-24 01:10:43,013 channel_17128: using channel_id: 1
+2024-03-24 01:10:43,014 channel_17128: Channel open
+2024-03-24 01:10:43,015 channel_17128: Closed channel #1
+2024-03-24 01:10:43,015 channel_17128: using channel_id: 1
+2024-03-24 01:10:43,016 channel_17128: Channel open
+2024-03-24 01:10:43,017 channel_17128: Closed channel #1
+2024-03-24 01:10:43,018 channel_17128: using channel_id: 1
+2024-03-24 01:10:43,018 channel_17128: Channel open
+2024-03-24 01:10:46,680 kombu_rmq_qmanager_19020: Publishing message in RequestForServiceMessage. Header businessId: 98d48887-8228-4826-9056-36d69aaa63ee
+2024-03-24 01:10:46,680 kombu_rmq_qmanager_19020: Error while publishing message:
+argument for 's' must be a bytes object
+2024-03-24 01:10:46,680 channel_19020: using channel_id: 2
+2024-03-24 01:10:46,681 channel_19020: Channel open
+2024-03-24 01:10:49,697 kombu_rmq_qmanager_19020: Publishing message in RequestForServiceMessage. Header businessId: af9d8ffb-311c-4a1b-b6cb-602a3e3c5938
+2024-03-24 01:10:49,697 kombu_rmq_qmanager_19020: Error while publishing message:
+argument for 's' must be a bytes object
+2024-03-24 01:10:49,698 channel_19020: using channel_id: 3
+2024-03-24 01:10:49,699 channel_19020: Channel open
+2024-03-24 01:10:50,342 kombu_rmq_qmanager_19020: Publishing message in RequestForServiceMessage. Header businessId: e5a83662-5593-4da4-83b9-a58c5c9ff94d
+2024-03-24 01:10:50,342 kombu_rmq_qmanager_19020: Error while publishing message:
+argument for 's' must be a bytes object
+2024-03-24 01:10:50,342 channel_19020: using channel_id: 4
+2024-03-24 01:10:50,344 channel_19020: Channel open
+2024-03-24 01:11:46,028 autoreload_17128: D:\Projects\Python\project\backend\backend_project\api\common_dto\RequestForServiceMessage.py changed, reloading.
+2024-03-24 01:11:46,376 kombu_rmq_qmanager_17488: Connected to RabbitMQ Server
+2024-03-24 01:11:46,380 connection_17488: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2024 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 26.2.2', 'product': 'RabbitMQ', 'version': '3.13.0'}, mechanisms: [b'AMQPLAIN', b'PLAIN'], locales: ['en_US']
+2024-03-24 01:11:46,382 channel_17488: using channel_id: 1
+2024-03-24 01:11:46,384 channel_17488: Channel open
+2024-03-24 01:11:46,385 channel_17488: Closed channel #1
+2024-03-24 01:11:46,385 channel_17488: using channel_id: 1
+2024-03-24 01:11:46,386 channel_17488: Channel open
+2024-03-24 01:11:46,387 channel_17488: Closed channel #1
+2024-03-24 01:11:46,387 channel_17488: using channel_id: 1
+2024-03-24 01:11:46,388 channel_17488: Channel open
+2024-03-24 01:11:46,389 channel_17488: Closed channel #1
+2024-03-24 01:11:46,389 channel_17488: using channel_id: 1
+2024-03-24 01:11:46,390 channel_17488: Channel open
+2024-03-24 01:11:54,806 kombu_rmq_qmanager_10964: Connected to RabbitMQ Server
+2024-03-24 01:11:54,810 connection_10964: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2024 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 26.2.2', 'product': 'RabbitMQ', 'version': '3.13.0'}, mechanisms: [b'AMQPLAIN', b'PLAIN'], locales: ['en_US']
+2024-03-24 01:11:54,812 channel_10964: using channel_id: 1
+2024-03-24 01:11:54,813 channel_10964: Channel open
+2024-03-24 01:11:54,815 channel_10964: Closed channel #1
+2024-03-24 01:11:54,815 channel_10964: using channel_id: 1
+2024-03-24 01:11:54,816 channel_10964: Channel open
+2024-03-24 01:11:54,817 channel_10964: Closed channel #1
+2024-03-24 01:11:54,817 channel_10964: using channel_id: 1
+2024-03-24 01:11:54,818 channel_10964: Channel open
+2024-03-24 01:11:54,819 channel_10964: Closed channel #1
+2024-03-24 01:11:54,819 channel_10964: using channel_id: 1
+2024-03-24 01:11:54,820 channel_10964: Channel open
+2024-03-24 01:11:56,904 kombu_rmq_qmanager_4632: Publishing message in RequestForServiceMessage. Header businessId: aa2a1542-4715-4494-84a9-12374260be98
+2024-03-24 01:11:56,904 kombu_rmq_qmanager_4632: Error while publishing message:
+object of type 'RequestForServiceMessage' has no len()
+2024-03-24 01:11:56,904 channel_4632: using channel_id: 2
+2024-03-24 01:11:56,905 channel_4632: Channel open

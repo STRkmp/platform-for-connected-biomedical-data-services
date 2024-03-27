@@ -1,0 +1,90 @@
+2024-02-10 13:54:28,083 kombu_rmq_qmanager_18044: Connected to RabbitMQ Server
+2024-02-10 13:54:28,087 connection_18044: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:54:28,089 kombu_rmq_qmanager_18044: Queue qmanager.test.queue_in initialization error:
+Connection.open: (530) NOT_ALLOWED - vhost vhost not found
+2024-02-10 13:54:28,090 connection_18044: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:54:28,092 kombu_rmq_qmanager_18044: Queue qmanager.test.queue_err initialization error:
+Connection.open: (530) NOT_ALLOWED - vhost vhost not found
+2024-02-10 13:54:28,094 connection_18044: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:54:28,095 kombu_rmq_qmanager_18044: Queue qmanager.test.queue_out initialization error:
+Connection.open: (530) NOT_ALLOWED - vhost vhost not found
+2024-02-10 13:54:28,096 connection_18044: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:56:45,200 kombu_rmq_qmanager_16136: Connected to RabbitMQ Server
+2024-02-10 13:56:45,203 connection_16136: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:56:45,205 kombu_rmq_qmanager_16136: Queue qmanager.test.queue_in initialization error:
+Connection.open: (530) NOT_ALLOWED - vhost vhost not found
+2024-02-10 13:56:45,207 connection_16136: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:56:45,209 kombu_rmq_qmanager_16136: Queue qmanager.test.queue_err initialization error:
+Connection.open: (530) NOT_ALLOWED - vhost vhost not found
+2024-02-10 13:56:45,210 connection_16136: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:56:45,211 kombu_rmq_qmanager_16136: Queue qmanager.test.queue_out initialization error:
+Connection.open: (530) NOT_ALLOWED - vhost vhost not found
+2024-02-10 13:56:45,213 connection_16136: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:57:04,459 kombu_rmq_qmanager_18332: Connected to RabbitMQ Server
+2024-02-10 13:57:04,462 connection_18332: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:57:04,464 kombu_rmq_qmanager_18332: Queue qmanager.test.queue_in initialization error:
+Connection.open: (530) NOT_ALLOWED - vhost vhost not found
+2024-02-10 13:57:04,466 connection_18332: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:57:04,468 kombu_rmq_qmanager_18332: Queue qmanager.test.queue_err initialization error:
+Connection.open: (530) NOT_ALLOWED - vhost vhost not found
+2024-02-10 13:57:04,470 connection_18332: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 13:57:04,471 kombu_rmq_qmanager_18332: Queue qmanager.test.queue_out initialization error:
+Connection.open: (530) NOT_ALLOWED - vhost vhost not found
+2024-02-10 13:57:04,472 connection_18332: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 14:25:27,352 kombu_rmq_qmanager_19316: Connected to RabbitMQ Server
+2024-02-10 14:25:27,356 connection_19316: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 14:25:27,358 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,358 channel_19316: Channel open
+2024-02-10 14:25:27,360 channel_19316: Channel open
+2024-02-10 14:25:27,363 kombu_rmq_qmanager_19316: Queue.bind: (404) NOT_FOUND - no exchange 'rmq_exchange' in vhost '/'
+2024-02-10 14:25:27,363 kombu_rmq_qmanager_19316: Queue qmanager.test.queue_in not found in vhost /. Initializing...
+2024-02-10 14:25:27,373 channel_19316: Closed channel #1
+2024-02-10 14:25:27,373 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,375 channel_19316: Channel open
+2024-02-10 14:25:27,376 channel_19316: Channel open
+2024-02-10 14:25:27,376 kombu_rmq_qmanager_19316: Queue.bind: (404) NOT_FOUND - no queue 'qmanager.test.queue_err' in vhost '/'
+2024-02-10 14:25:27,376 kombu_rmq_qmanager_19316: Queue qmanager.test.queue_err not found in vhost /. Initializing...
+2024-02-10 14:25:27,385 channel_19316: Closed channel #1
+2024-02-10 14:25:27,385 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,386 channel_19316: Channel open
+2024-02-10 14:25:27,388 channel_19316: Channel open
+2024-02-10 14:25:27,388 kombu_rmq_qmanager_19316: Queue.bind: (404) NOT_FOUND - no queue 'qmanager.test.queue_out' in vhost '/'
+2024-02-10 14:25:27,388 kombu_rmq_qmanager_19316: Queue qmanager.test.queue_out not found in vhost /. Initializing...
+2024-02-10 14:25:27,397 channel_19316: Closed channel #1
+2024-02-10 14:25:27,397 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,397 channel_19316: Channel open
+2024-02-10 14:25:27,398 channel_18252: using channel_id: 2
+2024-02-10 14:25:27,398 kombu_rmq_qmanager_19316: Connected to RabbitMQ Server
+2024-02-10 14:25:27,398 channel_18252: Channel open
+2024-02-10 14:25:27,398 kombu_rmq_qmanager_18252: Consuming from queue: qmanager.test.queue_in ...
+2024-02-10 14:25:27,399 connection_19316: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 14:25:27,401 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,402 channel_19316: Channel open
+2024-02-10 14:25:27,403 channel_19316: Closed channel #1
+2024-02-10 14:25:27,403 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,404 channel_19316: Channel open
+2024-02-10 14:25:27,404 channel_19316: Closed channel #1
+2024-02-10 14:25:27,404 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,406 channel_19316: Channel open
+2024-02-10 14:25:27,407 channel_19316: Closed channel #1
+2024-02-10 14:25:27,407 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,408 channel_19316: Channel open
+2024-02-10 14:25:27,408 channel_11388: using channel_id: 2
+2024-02-10 14:25:27,408 kombu_rmq_qmanager_19316: Connected to RabbitMQ Server
+2024-02-10 14:25:27,409 channel_11388: Channel open
+2024-02-10 14:25:27,409 kombu_rmq_qmanager_11388: Consuming from queue: qmanager.test.queue_in ...
+2024-02-10 14:25:27,410 connection_19316: Start from server, version: 0.9, properties: {'capabilities': {'publisher_confirms': True, 'exchange_exchange_bindings': True, 'basic.nack': True, 'consumer_cancel_notify': True, 'connection.blocked': True, 'consumer_priorities': True, 'authentication_failure_close': True, 'per_consumer_qos': True, 'direct_reply_to': True}, 'cluster_name': 'rabbit@rabbitmq', 'copyright': 'Copyright (c) 2007-2023 Broadcom Inc and/or its subsidiaries', 'information': 'Licensed under the MPL 2.0. Website: https://rabbitmq.com', 'platform': 'Erlang/OTP 25.3.2.8', 'product': 'RabbitMQ', 'version': '3.12.12'}, mechanisms: [b'PLAIN', b'AMQPLAIN'], locales: ['en_US']
+2024-02-10 14:25:27,410 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,411 channel_19316: Channel open
+2024-02-10 14:25:27,412 channel_19316: Closed channel #1
+2024-02-10 14:25:27,412 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,414 channel_19316: Channel open
+2024-02-10 14:25:27,415 channel_19316: Closed channel #1
+2024-02-10 14:25:27,415 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,416 channel_19316: Channel open
+2024-02-10 14:25:27,417 channel_19316: Closed channel #1
+2024-02-10 14:25:27,417 channel_19316: using channel_id: 1
+2024-02-10 14:25:27,418 channel_19316: Channel open
+2024-02-10 14:25:27,418 channel_17660: using channel_id: 2
+2024-02-10 14:25:27,419 channel_17660: Channel open
+2024-02-10 14:25:27,419 kombu_rmq_qmanager_17660: Consuming from queue: qmanager.test.queue_in ...
