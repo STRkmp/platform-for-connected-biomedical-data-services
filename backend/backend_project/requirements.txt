@@ -1,3 +1,0 @@
-Django==5.0.2
-pydantic==1.10.14
-minio==7.2.4

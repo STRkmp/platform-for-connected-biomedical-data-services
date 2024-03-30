@@ -1,39 +1,38 @@
 version: '3'
 
 services:
-  #Деплой сервера Django
-  web:
-    build:
-      context: backend/backend_project
-      dockerfile: Dockerfile
+  #Деплой nginx
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/code/staticfiles
+      - media_volume:/code/mediafiles
     ports:
-      - "8000:8000"
+      - "8687:80"
+    depends_on:
+      - backend_project
+    restart: "always"
     networks:
       - internal
-    depends_on:
-      - rabbitmq
-      - minio
-    env_file:
-      - .env.minio
 
- #Деплой консьюмера Django
-  consumer_web:
+  #Деплой сервера Django
+  backend_project:
     build:
-      context: backend/consumer_web  # Изменяем контекст на директорию консьюмера
+      context: backend_project
       dockerfile: Dockerfile
+    command: gunicorn -c gunicorn.conf.py backend_project.wsgi:application
+    expose:
+      - "8000:8000"
+    volumes:
+      - static_volume:/code/staticfiles
+      - media_volume:/code/mediafiles
+    networks:
+      - internal
     depends_on:
       - rabbitmq
       - minio
-    networks:
-      - internal
-    healthcheck:
-      test: [ "CMD-SHELL", "rabbitmq-diagnostics -q ping" ]
-      interval: 30s
-      timeout: 30s
-      retries: 3
     env_file:
       - .env.minio
-
 
   #Деплой RabbitMQ
   rabbitmq:
@@ -80,3 +79,5 @@ networks:
 volumes:
   minio_data:
     driver: local
+  static_volume:
+  media_volume:
