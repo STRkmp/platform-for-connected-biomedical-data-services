@@ -11,38 +11,64 @@ services:
       - "8687:80"
     depends_on:
       - backend_project
-    restart: "always"
+    restart: always
     networks:
       - internal
+
+  #Деплой Postgres
+  db:
+    image: postgres:12.0-alpine
+    ports:
+      - "54320:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.dev.db
+    restart: always
+    networks:
+      - internal
+
+  backend_project_migrations:
+    build:
+      context: ./backend_project
+      dockerfile: Dockerfile
+    command: python manage.py migrate
+    volumes:
+      - ./backend_project:/code  # Монтируем папку backend_project в /code в контейнере
+    networks:
+      - internal
+    depends_on:
+      - db
+    env_file:
+      - ./.env.dev
 
   #Деплой сервера Django
   backend_project:
     build:
-      context: backend_project
+      context: ./backend_project  # Относительный путь к папке backend_project
       dockerfile: Dockerfile
-    command: gunicorn -c gunicorn.conf.py backend_project.wsgi:application
+    command: gunicorn --config gunicorn.conf.py backend_project.wsgi:application
     expose:
       - "8000:8000"
     volumes:
+      - ./backend_project:/code  # Монтируем папку backend_project в /code в контейнере
       - static_volume:/code/staticfiles
       - media_volume:/code/mediafiles
     networks:
       - internal
+    restart: always
     depends_on:
       - rabbitmq
       - minio
+      - db
+      - backend_project_migrations
     env_file:
-      - .env.minio
+      - ./.env.dev
 
   #Деплой RabbitMQ
   rabbitmq:
     image: "rabbitmq:3-management"
-    hostname: rabbitmq
     restart: always
-    environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
-      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit log_levels [{connection,error},{default,error}] disk_free_limit 2147483648
     volumes:
       - ./rabbitmq:/var/lib/rabbitmq
     ports:
@@ -50,6 +76,8 @@ services:
       - "15672:15672"  # Для веб-интерфейса управления
     networks:
       - internal
+    env_file:
+      - ./.env.dev.rbmq
     healthcheck:
       test: rabbitmq-diagnostics -q ping
       interval: 30s
@@ -68,8 +96,9 @@ services:
       - 'minio_data:/data'
     networks:
       - internal
+    restart: always
     env_file:
-      - .env.minio
+      - ./.env.dev.minio
 
 
 networks:
@@ -81,3 +110,4 @@ volumes:
     driver: local
   static_volume:
   media_volume:
+  postgres_data:

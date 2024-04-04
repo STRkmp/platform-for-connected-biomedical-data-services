@@ -1,22 +1,27 @@
-from configparser import ConfigParser, RawConfigParser, ExtendedInterpolation
 from qmanager.qmanager_config import QManagerSettings
-from qmanager.qmanager_factory import QueueManagerFactory
 import os
 
-# Получаем путь к текущей директории
-current_directory = os.path.dirname(__file__)
+prefix = 'DJANGO_CONSUMER'
 
-# Формируем относительный путь к файлу application.ini
-relative_path = 'application.ini'
+# Функция для чтения переменных окружения с учетом префикса
+def getenv_with_prefix(prefix, key, default=None):
+    return os.getenv(f'{prefix}_{key}', default)
 
-# Получаем абсолютный путь к файлу application.ini
-absolute_path = os.path.abspath(os.path.join(current_directory, relative_path))
 
-# Инициализируем объект конфигурации
-app_config = RawConfigParser(interpolation=ExtendedInterpolation())
+# Создаем объект настроек для QueueManager, используя переменные окружения с префиксом QUEUE_MANAGER
+Settings = QManagerSettings(
+    queue_type=os.getenv('QUEUE_TYPE', 'KOMBU_RMQ'),
+    host=os.getenv('RABBITMQ_HOST', 'rabbitmq'),
+    port=int(os.getenv('RABBITMQ_PORT', '5672')),
+    virtual_host=os.getenv('RABBITMQ_VIRTUAL_HOST', '5672'),
+    exchange=os.getenv('RABBITMQ_EXCHANGE', 'platform'),
+    username=os.getenv('RABBITMQ_USER', 'guest'),
+    password=os.getenv('RABBITMQ_PASS', 'guest'),
+    auto_ack=getenv_with_prefix(prefix, 'AUTO_ACK', True),
+    queue_in=getenv_with_prefix(prefix, 'QUEUE_IN', 'ReqeustForServiceResult'),
+    queue_out=getenv_with_prefix(prefix, 'QUEUE_OUT', ''),
+    queue_err=getenv_with_prefix(prefix, 'QUEUE_ERR', 'ReqeustForServiceResultError'),
+    queue_timeout=int(getenv_with_prefix(prefix, 'QUEUE_TIMEOUT', '10'))
+)
 
-# Читаем файл конфигурации, передавая абсолютный путь
-app_config.read(absolute_path)
-
-Settings = QManagerSettings.parse_obj(app_config['QueueManager'])
 Workers = 2

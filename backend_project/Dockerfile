@@ -9,18 +9,11 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /code
 
 # Copy the current directory contents into the container at /code
-COPY . /code/
-
-# Copy common_dto to backend_project
-#COPY common_dto/ /code/backend_project/common_dto/
+#COPY . /code/
+COPY requirements.txt /code/
+COPY qmanager-1.0.tar.gz /code/
 
 # Install any needed packages specified in requirements.txt
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install qmanager-1.0.tar.gz
-
-# Make port 8000 available to the world outside this container
-EXPOSE 8000
-
-# Run app.py when the container launches
-CMD ["gunicorn", "--config", "gunicorn.conf.py", "backend_project.wsgi:application"]
-

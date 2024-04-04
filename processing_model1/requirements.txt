@@ -1,0 +1,2 @@
+pydantic==1.10.14
+jsonpickle==2.2.0

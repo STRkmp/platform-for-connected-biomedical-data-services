@@ -274,3 +274,24 @@ django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 11: 's
 2024-03-30 15:57:33,241 channel_19208: Closed channel #1
 2024-03-30 15:57:33,241 channel_19208: using channel_id: 1
 2024-03-30 15:57:33,242 channel_19208: Channel open
+2024-03-30 23:53:29,816 kombu_rmq_qmanager_15324: Connected to RabbitMQ Server
+2024-03-30 23:53:37,205 kombu_rmq_qmanager_15324: Queue ReqeustForServiceResult initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-30 23:53:44,579 kombu_rmq_qmanager_15324: Queue ReqeustForServiceResultError initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-30 23:54:10,518 kombu_rmq_qmanager_20456: Connected to RabbitMQ Server
+2024-03-30 23:54:17,924 kombu_rmq_qmanager_20456: Queue ReqeustForServiceResult initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-30 23:54:25,303 kombu_rmq_qmanager_20456: Queue ReqeustForServiceResultError initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-30 23:54:29,759 kombu_rmq_qmanager_15444: Connected to RabbitMQ Server
+2024-03-30 23:54:37,167 kombu_rmq_qmanager_15444: Queue ReqeustForServiceResult initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-30 23:59:01,499 kombu_rmq_qmanager_19868: Connected to RabbitMQ Server
+2024-03-30 23:59:08,909 kombu_rmq_qmanager_19868: Queue ReqeustForServiceResult initialization error:
+[Errno 11001] getaddrinfo failed
+2024-03-31 00:15:21,943 kombu_rmq_qmanager_18064: Connected to RabbitMQ Server
+2024-03-31 10:01:50,582 kombu_rmq_qmanager_8636: Connected to RabbitMQ Server
+2024-04-02 23:14:51,708 kombu_rmq_qmanager_13264: Connected to RabbitMQ Server
+2024-04-02 23:14:59,091 kombu_rmq_qmanager_13264: Queue ReqeustForServiceResult initialization error:
+[Errno 11001] getaddrinfo failed

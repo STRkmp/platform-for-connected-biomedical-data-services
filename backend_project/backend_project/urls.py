@@ -16,13 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.views import send_diagnosis_request
 from django.shortcuts import render
+
+
 def home(request):
     return render(request, template_name='index.html')
 
 urlpatterns = [
-    path('', home ),
+    path('', home),
     path('admin/', admin.site.urls),
-    path('api/send_diagnosis/', send_diagnosis_request, name='send_diagnosis_request'),
+    path('api/', include('accounts.urls')),  # login,register,logout
+    path('api/', include('api.urls')),  # send_diagnosis
 ]
