@@ -1,2 +1,3 @@
-rabbitmq
+rabbitmq/
 qmanager.log
+.idea/
