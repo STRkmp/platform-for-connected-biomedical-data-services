@@ -3,12 +3,13 @@ from io import BytesIO
 from minio import Minio
 
 minio_client = Minio(
-    'minio:9000',
-    access_key=os.environ.get('MINIO_ACCESS_KEY'),  # Обновлено здесь
-    secret_key=os.environ.get('MINIO_SECRET_KEY'),  # Обновлено здесь
+    endpoint=os.environ.get('MINIO_ENDPOINT', 'minio:9000'),
+    access_key=os.environ.get('MINIO_ACCESS_KEY', 'djangoAppUser'),  # Обновлено здесь
+    secret_key=os.environ.get('MINIO_SECRET_KEY', 'djangoAppUserSecretKey'),  # Обновлено здесь
     secure=False
 )
-bucket = os.environ.get('MINIO_BUCKET')
+
+bucket = os.environ.get('MINIO_BUCKET', 'platform')
 
 
 def upload_to_minio(file_name, file):

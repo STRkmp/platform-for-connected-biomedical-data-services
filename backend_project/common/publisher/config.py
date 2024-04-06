@@ -25,8 +25,8 @@ if not is_migrations():
         username=os.getenv('RABBITMQ_USER', 'guest'),
         password=os.getenv('RABBITMQ_PASS', 'guest'),
         auto_ack=getenv_with_prefix(prefix, 'AUTO_ACK', True),
-        queue_in=getenv_with_prefix(prefix, 'QUEUE_IN', 'RequestForServiceMessage'),
-        queue_out=getenv_with_prefix(prefix, 'QUEUE_OUT', ''),
+        queue_in=getenv_with_prefix(prefix, 'QUEUE_IN', ''),
+        queue_out=getenv_with_prefix(prefix, 'QUEUE_OUT', 'RequestForServiceMessage'),
         queue_err=getenv_with_prefix(prefix, 'QUEUE_ERR', 'RequestForServiceMessageError'),
         queue_timeout=int(getenv_with_prefix(prefix, 'QUEUE_TIMEOUT', '10'))
     )

@@ -1,12 +1,18 @@
 # Dockerfile.worker
 
-FROM python:3.8
+FROM python:3.12-slim
 
-WORKDIR /service_model
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-COPY requirements.txt .
+WORKDIR /code
+
+# Copy the current directory contents into the container at /code
+#COPY . /code/
+COPY . /code/
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-CMD ["python", "main.py"]
+RUN pip install qmanager-1.0.tar.gz

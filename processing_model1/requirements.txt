@@ -1,2 +1,4 @@
 pydantic==1.10.14
 jsonpickle==2.2.0
+reportlab==4.1.0
+minio==7.2.5

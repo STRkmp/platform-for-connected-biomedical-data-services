@@ -9,8 +9,15 @@ def upload_file(file, user_id):
 
     upload_to_minio(full_path, file)
 
+    return save_to_db(full_path, file.name)
+
+
+def save_to_db(full_path, file_name=None):
+    if file_name is None:
+        file_name = full_path.split('/')[-1]
+
     # Создаем запись о загруженном файле
-    serializer = UploadedFileSerializer(data={'full_path': full_path, 'name': file.name})
+    serializer = UploadedFileSerializer(data={'full_path': full_path, 'name': file_name})
     if serializer.is_valid(raise_exception=True):
         instance = serializer.save()
         return instance
