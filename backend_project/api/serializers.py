@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .models import DiagnosisRequest, UploadedFile, ProcessingService
+from .models import DiagnosisRequest, UploadedFile, ProcessingService, Patient
 
 
 class DiagnosisRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = DiagnosisRequest
-        fields = ['id', 'user', 'request_time', 'status', 'service', 'uploaded_file', 'result_file']
+        fields = ['id', 'user', 'request_time', 'status', 'service', 'uploaded_file', 'result_file', 'patient', 'complaints']
 
 
 class UploadedFileSerializer(serializers.ModelSerializer):
@@ -18,3 +18,8 @@ class ProcessingServiceSerializer(serializers.ModelSerializer):
         model = ProcessingService
         fields = ['id', 'name', 'description', 'is_available']
 
+
+class PatientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Patient
+        fields = ['id', 'name', 'lastname', 'surname', 'birth_date']

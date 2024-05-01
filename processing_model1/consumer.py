@@ -2,10 +2,9 @@ from qmanager.qmanager_factory import QueueManagerFactory
 from pydantic import BaseSettings
 from threading import Thread
 import jsonpickle
-from common.utils.minio_utils import get_object_from_minio, upload_to_minio, replace_path_file
+from common.utils.minio_utils import get_object_from_minio, upload_to_minio, replace_path_file, get_object_stats_from_minio
 from common.dto.ResultFromServiceMessage import ResultFromServiceMessage
-from common.dto.RequestForServiceMessage import RequestForServiceMessage
-from example import create_pdf
+from diplom_backend.recognize import start_recognize
 
 
 class ThreadedConsumer(Thread):
@@ -22,14 +21,18 @@ class ThreadedConsumer(Thread):
         try:
             print(f'{self.name} RECEIVED {headers}\n{type(data)}\n{data}')
             request = jsonpickle.decode(data)
+            print(request)
             file = get_object_from_minio(request['path_to_file'])
+            file_info = get_object_stats_from_minio(request['path_to_file'])
+            print(file)
+            print(file_info.object_name)
             if file is None:
                 raise Exception('No file found. Request : {}'.format(request))
-
-            created_file = create_pdf(file)  # тут файл сформированный         ##ТУТ НУЖНО ВЫЗВАТЬ СВОЙ МЕТОД ДЛЯ ОБРАБОТКИ ФАЙЛА, ЧТОБЫ ОН ВОЗВРАЩАЛ СФОРМИРОВАННЫЙ НОВЫЙ ФАЙЛ С ИМЕНЕМ RESULT (.HTML ИЛИ .PDF) и возможно описание
+            print('start recognize')
+            created_file = start_recognize(file, file_info)  # тут файл сформированный         ##ТУТ НУЖНО ВЫЗВАТЬ СВОЙ МЕТОД ДЛЯ ОБРАБОТКИ ФАЙЛА, ЧТОБЫ ОН ВОЗВРАЩАЛ СФОРМИРОВАННЫЙ НОВЫЙ ФАЙЛ С ИМЕНЕМ RESULT (.HTML ИЛИ .PDF) и возможно описание
 
             path = replace_path_file(request['path_to_file'],
-                                     created_file.name)  # подставить имя нового файла, вместо "Result.pdf" file.name
+                                     "Result.pdf")  # подставить имя нового файла, вместо "Result.pdf" file.name
 
             upload_to_minio(path, created_file)
 

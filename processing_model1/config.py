@@ -5,7 +5,7 @@ import os
 # Создаем объект настроек для QueueManager, используя переменные окружения с префиксом QUEUE_MANAGER
 Settings = QManagerSettings(
     queue_type=os.getenv('QUEUE_TYPE', 'KOMBU_RMQ'),
-    host=os.getenv('RABBITMQ_HOST', 'rabbitmq'),
+    host=os.getenv('RABBITMQ_HOST', 'localhost'),
     port=int(os.getenv('RABBITMQ_PORT', '5672')),
     virtual_host=os.getenv('RABBITMQ_VIRTUAL_HOST', '/'),
     exchange=os.getenv('RABBITMQ_EXCHANGE', 'platform'),
@@ -17,4 +17,4 @@ Settings = QManagerSettings(
     queue_err=os.getenv('QUEUE_ERR', 'ReqeustForServiceResultError'),
     queue_timeout=int(os.getenv('QUEUE_TIMEOUT', '10')))
 
-Workers = 2
+Workers = 1

@@ -1,0 +1,12 @@
+
+.carousel-image {
+    /*height: 100%;*/
+    /*width: 100%;*/
+    flex: 1;
+}
+
+/*.carousel-image img {*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    object-fit: contain;*/
+/*}*/

@@ -1,6 +1,7 @@
 import os
 from io import BytesIO
 from minio import Minio
+from datetime import timedelta
 
 minio_client = Minio(
     endpoint=os.environ.get('MINIO_ENDPOINT', 'minio:9000'),
@@ -25,4 +26,15 @@ def upload_to_minio(file_name, file):
         )
     except Exception as err:
         print("Ошибка при загрузке файла. {}".format(err))
+        raise err
+
+
+def get_presigned_download_url(full_path):
+    return minio_client.presigned_get_object(bucket, full_path, expires=timedelta(hours=2))
+
+def get_object_from_minio(file_name):
+    try:
+        return minio_client.get_object(bucket, file_name)
+    except Exception as err:
+        print("Ошибка при чтении файла. {}".format(err))
         raise err
