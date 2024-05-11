@@ -121,6 +121,20 @@ services:
     env_file:
       - ./.env.dev.processing_model1
 
+  processing_model_sugar:
+    build:
+      context: ./processing_model_sugar  # Относительный путь к папке processing_model1
+      dockerfile: Dockerfile
+    command: python main.py
+    networks:
+      - internal
+    restart: always
+    depends_on:
+      - rabbitmq
+      - minio
+    env_file:
+      - ./.env.dev.processing_model_sugar
+
 networks:
   internal:
     driver: bridge
