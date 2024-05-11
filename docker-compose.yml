@@ -99,6 +99,13 @@ services:
     env_file:
       - ./.env.dev.minio
 
+  base-opencv-builder:
+    build:
+      context: ./  # Путь к Docker-файлу базового образа
+      dockerfile: base-opencv.Dockerfile  # Имя Docker-файла
+    image: base-opencv:latest  # Имя базового образа
+    command: echo "Base image built"
+
   processing_model1:
     build:
       context: ./processing_model1  # Относительный путь к папке processing_model1
@@ -108,6 +115,7 @@ services:
       - internal
     restart: always
     depends_on:
+      - base-opencv-builder
       - rabbitmq
       - minio
     env_file:

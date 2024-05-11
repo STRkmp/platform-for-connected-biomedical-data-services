@@ -14,7 +14,6 @@ from django.http import FileResponse
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def send_diagnosis_request(request):
-    try:
         # Получение пользователя из запроса
         user = request.user
 
@@ -52,9 +51,6 @@ def send_diagnosis_request(request):
             return Response({'status': 'success'}, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    except Exception as e:
-        print(e)
-        return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(['GET'])
