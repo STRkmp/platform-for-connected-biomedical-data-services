@@ -30,3 +30,8 @@ class Patient(models.Model):
     lastname = models.CharField(max_length=100)
     surname = models.CharField(max_length=100, null=True)
     birth_date = models.DateField()
+
+class Feedback(models.Model):
+    request = models.ForeignKey('DiagnosisRequest', on_delete=models.DO_NOTHING,
+                                         related_name='request_diagnosis_request')
+    comment = models.TextField()

@@ -1,0 +1,12 @@
+.request-form-container {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Устанавливаем z-index, чтобы компонент находился выше других элементов, если это необходимо */
+    background-color: white; /* Цвет фона компонента */
+    padding: 20px; /* Отступы внутри компонента */
+    border: 1px solid #ccc; /* Граница вокруг компонента */
+    border-radius: 5px; /* Скругленные углы */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
+}

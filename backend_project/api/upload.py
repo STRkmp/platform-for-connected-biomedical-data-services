@@ -4,6 +4,7 @@ import uuid
 
 
 def upload_file(file, user_id):
+    print(file)
     path = "{}/{}/".format(user_id, str(uuid.uuid4()))
     full_path = path + file.name
 

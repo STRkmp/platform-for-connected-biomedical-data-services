@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import DiagnosisRequest, UploadedFile, ProcessingService, Patient
+from .models import DiagnosisRequest, UploadedFile, ProcessingService, Patient, Feedback
 
 
 class DiagnosisRequestSerializer(serializers.ModelSerializer):
@@ -23,3 +23,8 @@ class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
         fields = ['id', 'name', 'lastname', 'surname', 'birth_date']
+
+class FeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Feedback
+        fields = ['id', 'request', 'comment']

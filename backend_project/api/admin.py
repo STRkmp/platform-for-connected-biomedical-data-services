@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProcessingService, UploadedFile, DiagnosisRequest
+from .models import ProcessingService, UploadedFile, DiagnosisRequest, Feedback
 
 # Register your models here.
 
@@ -7,3 +7,4 @@ from .models import ProcessingService, UploadedFile, DiagnosisRequest
 admin.site.register(ProcessingService)
 admin.site.register(UploadedFile)
 admin.site.register(DiagnosisRequest)
+admin.site.register(Feedback)

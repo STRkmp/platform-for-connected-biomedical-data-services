@@ -7,13 +7,14 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from .models import ProcessingService, DiagnosisRequest, UploadedFile
-from .serializers import DiagnosisRequestSerializer, ProcessingServiceSerializer
+from .serializers import DiagnosisRequestSerializer, ProcessingServiceSerializer, FeedbackSerializer
 from .upload import upload_file
 from django.http import FileResponse
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def send_diagnosis_request(request):
+        print(request)
         # Получение пользователя из запроса
         user = request.user
 
@@ -116,8 +117,42 @@ def get_file(request):
 
         file_from_minio = get_object_from_minio(file.full_path)
 
-        return FileResponse(file_from_minio)
+        response = HttpResponse(file_from_minio, content_type='application/octet-stream')
+        response['Content-Disposition'] = f'attachment; filename="{file.name}"'
+        response["Access-Control-Expose-Headers"] = "Content-Disposition"
 
-
+        return response
     except Exception as e:
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def send_report(request):
+        print(request)
+        # Получение пользователя из запроса
+        user = request.user
+
+        # Получение service_id из header
+        request_id = request.headers.get('Request-id')
+
+        # Получение объекта ProcessingService по service_id
+        request_from_db = DiagnosisRequest.objects.get(id=request_id, user=user)
+
+        if (request_from_db.status == 'created'):
+            return Response({'status': 'error', 'error': "Запрос ещё не обработался."}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Получение пациента и жалоб из запроса
+        comment = request.data.get('comment')
+
+        serializer = FeedbackSerializer(data={
+            'request': request_from_db.id,
+            'comment': comment
+        })
+
+        if serializer.is_valid():
+            instance = serializer.save()
+            request_id = instance.id
+
+            return Response({'status': 'success', 'request_id': request_id}, status=status.HTTP_200_OK)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

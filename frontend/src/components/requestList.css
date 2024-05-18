@@ -1,0 +1,43 @@
+.request-list {
+    list-style: none;
+    padding: 0;
+}
+
+.request-item {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.request-item h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.request-item {
+    /* Остальные стили */
+}
+
+.request-item.success {
+    background-color: lightgreen;
+}
+
+.request-item.error {
+    background-color: lightcoral;
+}
+
+.request-item .status {
+    font-weight: bold;
+}
+
+.request-item .download-link {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.request-item .download-link:hover {
+    text-decoration: underline;
+}
