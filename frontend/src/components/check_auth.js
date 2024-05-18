@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {login} from "../api/auth/login";
-import {message} from "antd";
 import Cookies from 'js-cookie';
 
 
@@ -16,7 +14,7 @@ const withAuth = (Component) => {
         useEffect(() => {
             if (!isLoggedIn) {
                 // Редиректим на страницу логина, если пользователь не авторизован
-                navigate('/start');
+                navigate('/login');
             }
         }, [isLoggedIn, navigate]);
 

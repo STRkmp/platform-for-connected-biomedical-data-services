@@ -23,6 +23,7 @@ class ProcessingService(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.CharField(max_length=500, default='Without description :(')
     health_check_url = models.URLField(null=True)
+    short_name = models.TextField(null=True)
     is_available = models.BooleanField(default=True)
 
 class Patient(models.Model):

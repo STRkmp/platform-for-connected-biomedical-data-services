@@ -16,7 +16,7 @@ class UploadedFileSerializer(serializers.ModelSerializer):
 class ProcessingServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProcessingService
-        fields = ['id', 'name', 'description', 'is_available']
+        fields = ['id', 'name', 'description', 'short_name', 'is_available']
 
 
 class PatientSerializer(serializers.ModelSerializer):

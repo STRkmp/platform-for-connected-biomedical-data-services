@@ -1,0 +1,12 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center; /* Добавляем выравнивание текста по центру */
+}
+
+.auth-form {
+    max-width: 300px;
+    width: 100%;
+}
