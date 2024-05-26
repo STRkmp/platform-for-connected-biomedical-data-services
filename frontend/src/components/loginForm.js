@@ -19,7 +19,7 @@ const LoginForm = () => {
             window.location.href = '/';
         } catch (error) {
             console.error('Ошибка при входе:', error);
-            message.error('Ошибка при входе');
+            message.error('Ошибка при входе', error);
         } finally {
             setLoading(false);
         }
@@ -27,32 +27,33 @@ const LoginForm = () => {
 
     return (
         <div className="auth-container">
-            <h1>Вход</h1>
+
             <Form
                 name="login"
-                initialValues={{ remember: true }}
+                initialValues={{remember: true}}
                 onFinish={onFinish}
                 className="auth-form"
             >
+                <h1>Вход</h1>
                 <Form.Item
                     name="username"
-                    rules={[{ required: true, message: 'Введите имя пользователя' }]}
+                    rules={[{required: true, message: 'Введите имя пользователя'}]}
                 >
-                    <Input placeholder="Имя пользователя" />
+                    <Input placeholder="Имя пользователя"/>
                 </Form.Item>
 
                 <Form.Item
                     name="password"
-                    rules={[{ required: true, message: 'Введите пароль' }]}
+                    rules={[{required: true, message: 'Введите пароль'}]}
                 >
-                    <Input.Password placeholder="Пароль" />
+                    <Input.Password placeholder="Пароль"/>
                 </Form.Item>
 
                 <Form.Item>
                     <Button type="primary" htmlType="submit" loading={loading}>
                         Войти
                     </Button>
-                    Или <Link to="/register">зарегистрируйтесь</Link>
+                     Или <Link to="/register">зарегистрируйтесь</Link>
                 </Form.Item>
             </Form>
         </div>

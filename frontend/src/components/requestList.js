@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { List, Card, Typography, Button, Modal, Input, message } from 'antd';
+import { List, Card, Typography, Button, Modal, Input, message, Space } from 'antd';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import './requestList.css';
@@ -10,6 +10,14 @@ const RequestList = ({ requests, handleDownloadResult }) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [comment, setComment] = useState('');
     const [currentRequestId, setCurrentRequestId] = useState(null);
+    const [filter, setFilter] = useState(null);
+
+    const handleFilter = (status) => {
+        setFilter(status);
+    };
+
+    const filteredRequests = filter ? requests.filter(request => request.status === filter) : requests;
+
 
     const showFeedbackModal = (requestId) => {
         setCurrentRequestId(requestId);
@@ -46,15 +54,25 @@ const RequestList = ({ requests, handleDownloadResult }) => {
 
     return (
         <>
+            <Space>
+                <Button onClick={() => handleFilter('success')}>Успешные</Button>
+                <Button onClick={() => handleFilter('created')}>В очереди</Button>
+                <Button onClick={() => handleFilter('error')}>Ошибки</Button>
+                <Button onClick={() => setFilter(null)}>Сбросить фильтр</Button>
+            </Space>
             <List
+                className="request-list-container"
                 grid={{ gutter: 16, column: 1 }}
-                dataSource={requests}
+                dataSource={filteredRequests.sort((a, b) => b.id - a.id)} // Сортировка по убыванию номеров запросов
                 renderItem={request => (
                     <List.Item>
                         <Card
                             title={`Номер запроса: ${request.id}`}
                             extra={<Text type={getStatusColor(request.status)}>{getStatusText(request.status)}</Text>}
                         >
+                            {request.complaints && (
+                                <p><strong>Жалобы:</strong>{request.complaints}</p>
+                            )}
                             <p><strong>Время запроса:</strong> {new Date(request.request_time).toLocaleString()}</p>
                             <p>{request.description}</p>
                             {request.status === 'success' && (

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BugOutlined } from '@ant-design/icons';
+import { HomeOutlined } from '@ant-design/icons';
 import Sidebar from '../components/sidebar';
 import './basic.css';
 import axios from 'axios';
@@ -19,10 +19,12 @@ const BasicPage = (props) => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [requests, setRequests] = useState([]);
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         Cookies.remove('token');
         navigate('/login');
+
     };
+
 
     const handleMenuClick = async (item) => {
         try {
@@ -76,7 +78,7 @@ const BasicPage = (props) => {
             <Header className="header">
                 <div className='logo'>
                     <Link to='/' className="profile-button" style={{ color: 'white' }}>
-                        <BugOutlined />
+                        <HomeOutlined />
                     </Link>
                 </div>
                 <div className='controller'>

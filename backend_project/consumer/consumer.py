@@ -17,6 +17,9 @@ class ThreadedConsumer(Thread):
     def process_request(self, data: bytes, headers: dict = None) -> None:
         from api.models import DiagnosisRequest
         from api.upload import save_to_db
+        from common.utils.mail import send_email
+        from common.utils.minio_utils import get_object_from_minio
+        from io import BytesIO
 
         print(f'{self.name} RECEIVED {headers}\n{type(data)}\n{data}')
 
@@ -36,6 +39,18 @@ class ThreadedConsumer(Thread):
             request.save()
 
             print(f'{self.name} Handled request {request_id}')
+
+            user = request.user
+            print(f'{self.name} user = {user}')
+            file = request.result_file
+            print(f'{self.name} file = {file}')
+            service = request.service
+            print(f'{self.name} service = {service}')
+            response_file = get_object_from_minio(file.full_path)
+
+            byte_file = BytesIO(response_file.data)
+
+            send_email(user.email, byte_file.getvalue(), file.name, service.short_name)
         except DiagnosisRequest.DoesNotExist:
             print(f'Request with id {request_id} not found.')
         except Exception as e:

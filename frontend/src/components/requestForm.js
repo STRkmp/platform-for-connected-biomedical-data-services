@@ -1,20 +1,20 @@
-import React from 'react';
-import axios from 'axios';
-import { Form, Button, Upload, message, Typography } from 'antd';
+import React, { useState } from 'react';
+import { Form, Button, Upload, message, Input } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import axios from "axios";
 import Cookies from "js-cookie";
 
-const { Title } = Typography;
-
 const RequestForm = ({ itemId, update }) => {
+    const [file, setFile] = useState(null);
+    const [complaints, setComplaints] = useState('');
 
     const handleSubmit = async (values) => {
         try {
-            console.log(itemId)
             console.log(values);
             const formData = new FormData();
-            formData.append('file', values.file.file); // Добавляем файл в FormData
-            console.log(formData);
+            formData.append('file', values.file.file);
+            formData.append('complaints', values.complaints); // Добавление жалоб в formData
+
             const token = Cookies.get('token');
             const config = {
                 headers: {
@@ -27,26 +27,33 @@ const RequestForm = ({ itemId, update }) => {
             const response = await axios.post('http://localhost:8687/api/request/', formData, config);
             console.log('Успешный ответ:', response.data);
             message.success('Запрос успешно отправлен');
-            update(itemId);
+            update(itemId); // Обновление данных после отправки запроса
+
+            // Сброс файла
+            setFile(null);
+            setComplaints('')
         } catch (error) {
             console.error('Ошибка при отправке запроса:', error);
             message.error('Ошибка при отправке запроса');
         }
     };
 
-    // Функция перед отправкой файла, чтобы предотвратить фактическую загрузку на сервер
     const beforeUpload = (file) => {
-        return false; // Отменяем загрузку
+        setFile(file); // Сохранение файла перед загрузкой
+        return false; // Отмена загрузки на сервер
     };
 
     return (
-        <div style={styles.container}>
-            <Title level={3} style={styles.title}>Создание запроса на распознавание</Title>
+        <div>
+            <h3>Создание запроса на распознавание</h3>
             <Form layout="vertical" onFinish={handleSubmit}>
                 <Form.Item label="Файл" name="file" rules={[{ required: true, message: 'Загрузите файл' }]}>
-                    <Upload beforeUpload={beforeUpload} maxCount={1}>
+                    <Upload beforeUpload={beforeUpload} maxCount={1} fileList={file ? [file] : []}>
                         <Button icon={<UploadOutlined />}>Выбрать файл</Button>
                     </Upload>
+                </Form.Item>
+                <Form.Item label="Жалобы" name="complaints">
+                    <Input.TextArea value={complaints} onChange={(e) => setComplaints(e.target.value)} />
                 </Form.Item>
                 <Form.Item>
                     <Button type="primary" htmlType="submit">Отправить</Button>
@@ -54,21 +61,6 @@ const RequestForm = ({ itemId, update }) => {
             </Form>
         </div>
     );
-};
-
-const styles = {
-    container: {
-        border: '1px solid #d9d9d9',
-        borderRadius: '8px',
-        padding: '16px',
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-        backgroundColor: '#fff',
-        marginBottom: '16px'
-    },
-    title: {
-        marginBottom: '24px',
-        textAlign: 'center'
-    }
 };
 
 export default RequestForm;
