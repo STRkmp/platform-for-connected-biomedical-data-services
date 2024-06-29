@@ -13,7 +13,7 @@ def send_email(target, byte_file, file_name, processing_service_name):
     server = smtplib.SMTP('smtp.mail.ru', 587)
     server.ehlo()
     server.starttls()
-    server.login(mail, 'AzxKRj56TiH6LE8ucfFa')
+    server.login(mail, '')
 
     msg = MIMEMultipart()
     msg['From'] = mail
